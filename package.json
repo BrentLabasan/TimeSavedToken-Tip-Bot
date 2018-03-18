@@ -1,0 +1,29 @@
+{
+  "name": "stellar-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "big.js": "^5.0.3",
+    "dotenv": "^5.0.0",
+    "orm": "^4.0.2",
+    "pg": "^7.4.1",
+    "snoowrap": "^1.15.2",
+    "stellar-sdk": "^0.8.0",
+    "twit": "^2.2.9"
+  },
+  "devDependencies": {
+    "mocha": "^5.0.0"
+  },
+  "scripts": {
+    "app": "node app.js",
+    "test": "NODE_ENV=test node_modules/mocha/bin/mocha",
+    "backup": "ssh root@stellar \"docker exec -t db pg_dumpall -c -U postgres\" > backups/dump_`date +%d-%m-%Y'_'%H_%M_%S`.sql",
+    "deployment": "ssh root@stellar 'cd /root/stellar-bot && ./run.sh'",
+    "logs": "ssh root@stellar 'docker logs -f app'",
+    "restart": "ssh root@stellar 'docker restart app'"
+  },
+  "author": "https://github.com/shredding",
+  "license": "MIT",
+  "repository": "https://github.com/shredding/stellar-bot"
+}
