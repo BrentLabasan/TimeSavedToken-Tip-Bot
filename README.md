@@ -1,6 +1,13 @@
-# Stellar Tipping bot
+# Time Saved Token Tip Bot
 
-The stellar tip bot is there to thank people for help, be friendly, buy someone a coffee and spread the word about the amazing stellar network.
+The Time Saved Token Tip Bot is used to thank people for helping you save time, by giving them tokens (SECONDs, MINUTEs, ...MONTHs, YEARs) which quantify how much time they saved you.
+
+Forked from https://github.com/shredding/stellar-bot.
+
+Created by Brent Labasan | BrentLabasan@gmail.com
+TimeSavedToken.com | TimeSavedToken@gmail.com | @TimeSavedToken
+
+TODO modify the old README.MD below.
 
 Here are a few features we want to highlight:
 
