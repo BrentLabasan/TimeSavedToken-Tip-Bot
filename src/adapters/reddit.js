@@ -210,7 +210,7 @@ class Reddit extends Adapter {
           await callReddit('composeMessage', {
             to: m.author.name,
             subject: 'XLM Balance',
-            text: formatMessage(`Your current balance is **${balance} XLM**.\nSECOND: foo\nMINUTE: \nHOUR: `)
+            text: formatMessage(`Your current balance is **${balance} XLM**.\n\n\n\nSECOND: foo\n\n\n\nMINUTE: \n\n\n\nHOUR: `)
           })
           await callReddit('markMessagesAsRead', [m])
         }
