@@ -206,6 +206,7 @@ class Reddit extends Adapter {
       .forEach(async (m) => {
         // Check the balance of the user
         if (m.subject === 'Balance') {
+          console.log('this.name', this.name, 'm.author.name', m.author.name);
           const balance = await this.requestBalance(this.name, m.author.name)
           await callReddit('composeMessage', {
             to: m.author.name,
