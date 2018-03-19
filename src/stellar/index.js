@@ -13,6 +13,7 @@ module.exports = async function (models) {
   const events = new EventEmitter()
 
   console.log('keyPair.publicKey():', publicKey);
+  console.log(server);
 
   if (process.env.MODE === 'production') {
     StellarSdk.Network.usePublicNetwork()
