@@ -1,0 +1,10 @@
+GENERAL
+ssh root@198.58.98.181
+npm run app
+history | grep docker
+
+POSTGRESQL
+docker exec -ti db sh -c 'su postgres -c "psql"'
+\dt
+\l
+\c stellar
