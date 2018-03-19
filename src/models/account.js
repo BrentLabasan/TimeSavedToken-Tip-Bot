@@ -127,6 +127,7 @@ module.exports = (db) => {
        * but a uuid4 or sth like that would work as well.
        */
       withdraw: async function (stellar, to, withdrawalAmount, hash) {
+        console.log("src models account.js", to);
         const Transaction = db.models.transaction
         const Action = db.models.action
 
