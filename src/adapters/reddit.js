@@ -101,7 +101,11 @@ class Reddit extends Adapter {
   }
 
   async onWithdrawalReferenceError (uniqueId, address, amount, hash) {
-    callReddit('composeMessage', {
+ console.log("uniqueId", uniqueId);
+ console.log("address", address);
+ console.log("amount", amount);
+ console.log("hash", hash);
+ callReddit('composeMessage', {
       to: uniqueId,
       subject: 'XLM Withdrawal failed',
       text: formatMessage(`You tried to withdraw to the bot address. Please try again.`)

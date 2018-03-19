@@ -195,8 +195,11 @@ class Adapter extends EventEmitter {
 
     // Withdraw
     try {
+      console.log("=== gordita ", address);
       await target.withdraw(this.config.stellar, address, withdrawalAmount, hash)
+      console.log("=== taco");
       utils.log(`${fixedAmount} XLM withdrawed by ${uniqueId} on ${adapter}.`)
+      console.log("=== burrito");
       this.onWithdrawal(uniqueId, address, fixedAmount, hash)
     } catch (exc) {
       if (exc === 'WITHDRAWAL_DESTINATION_ACCOUNT_DOES_NOT_EXIST') {
