@@ -130,7 +130,7 @@ module.exports = async function (models) {
           destination: to,
           // Because Stellar allows transaction in many currencies, you must
           // specify the asset type. The special "native" asset represents Lumens.
-          asset: StellarSdk.Asset.native(),
+          asset: new('SECOND', 'GCDMFH3RSZR3FLBHSUYPLF2XAG5TWZQDHNX5XG4UELVXICNBESDFMXTJ'),
           amount: amount
         }))
         .addMemo(StellarSdk.Memo.text('SECOND Tipping bot'))

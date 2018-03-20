@@ -146,7 +146,7 @@ module.exports = (db) => {
             memoId: 'SECOND Tipping bot',
             amount: amount.toFixed(7),
             createdAt: now.toISOString(),
-            asset: 'SECOND', // ALPHANUM12
+            asset: 'ALPHANUM12', // OG 'native', ALPHANUM12
             source: stellar.address,
             target: to,
             hash: hash,

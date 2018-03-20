@@ -9,12 +9,12 @@ native -> SECOND
 │   ├── reddit.js ✔️ replaced XLM with SECOND ✔️ no NATIVE
 │   └── twitter.js
 ├── models
-│   ├── account.js ✔️ no XLM ✔️ no NATIVE
+│   ├── account.js  ✔️ replaced XLM with SECOND !!!??@@@ line 149 native to SECOND
 │   ├── action.js ✔️ no XLM ✔️ no NATIVE
 │   ├── index.js ✔️ no XLM ✔️ no NATIVE
 │   └── transaction.js ✔️ no XLM ✔️ no NATIVE
 ├── stellar
-│   └── index.js !!!@@@ This one needs work !!!@@@
+│   └── index.js !!!??@@@ This one needs work !!!??@@@
 └── utils.js ✔️ no XLM ✔️ no NATIVE
 /test
 ├── adapters
@@ -22,7 +22,7 @@ native -> SECOND
 │   ├── reddit.js
 │   └── twitter.js
 ├── models
-│   ├── account.js ✔️ replaced XLM with SECOND ??? line 149 native to SECOND
+│   ├── account.js
 │   ├── action.js
 │   ├── index.js
 │   └── transaction.js
