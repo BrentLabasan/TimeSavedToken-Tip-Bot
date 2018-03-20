@@ -1,0 +1,43 @@
+TODO
+
+XLM -> SECOND
+native -> SECOND
+
+/src
+├── adapters
+│   ├── abstract.js ✔️ replaced XLM with SECOND ✔️ no NATIVE
+│   ├── reddit.js ✔️ replaced XLM with SECOND ✔️ no NATIVE
+│   └── twitter.js
+├── models
+│   ├── account.js ✔️ no XLM ✔️ no NATIVE
+│   ├── action.js ✔️ no XLM ✔️ no NATIVE
+│   ├── index.js ✔️ no XLM ✔️ no NATIVE
+│   └── transaction.js ✔️ no XLM ✔️ no NATIVE
+├── stellar
+│   └── index.js !!!@@@ This one needs work !!!@@@
+└── utils.js ✔️ no XLM ✔️ no NATIVE
+/test
+├── adapters
+│   ├── abstract.js
+│   ├── reddit.js
+│   └── twitter.js
+├── models
+│   ├── account.js ✔️ replaced XLM with SECOND ??? line 149 native to SECOND
+│   ├── action.js
+│   ├── index.js
+│   └── transaction.js
+├── stellar
+│   └── index.js
+└── utils.js
+.dockerignore
+.env ✔️✔️
+.env.test ✔️✔️
+app.js ✔️
+commands.txt
+Dockerfile
+LICENSE
+package.json
+package-lock.json
+README.md ✔️
+run.sh ✔️
+understanding.txt ✔️

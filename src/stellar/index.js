@@ -112,7 +112,7 @@ module.exports = async function (models) {
                   destination: to,
                   startingBalance: amount
                 }))
-                .addMemo(StellarSdk.Memo.text('XLM Tipping bot'))
+                .addMemo(StellarSdk.Memo.text('SECOND Tipping bot'))
                 .build()
               transaction.sign(keyPair)
               return transaction
@@ -133,7 +133,7 @@ module.exports = async function (models) {
           asset: StellarSdk.Asset.native(),
           amount: amount
         }))
-        .addMemo(StellarSdk.Memo.text('XLM Tipping bot'))
+        .addMemo(StellarSdk.Memo.text('SECOND Tipping bot'))
         .build()
       transaction.sign(keyPair)
       return transaction

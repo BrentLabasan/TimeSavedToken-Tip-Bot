@@ -15,8 +15,8 @@ async function bootstrap () {
     new Twitter(config)
   ]
 
-  console.log("Alive and kickin'!")
+  console.log("TST SECOND Tip Bot is currently running.")
 
 }
 
-bootstrap()
+bootstrap();

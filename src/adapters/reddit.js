@@ -45,8 +45,8 @@ function formatMessage(txt) {
   return txt +
     '\n\n\n\n' +
     '[Deposit](https://www.reddit.com/user/stellar_bot/comments/7o2ex9/deposit/) | ' +
-    `[Withdraw](https://np.reddit.com/message/compose/?to=${process.env.REDDIT_USER}&subject=Withdraw&message=Amount%20XLM%0Aaddress%20here) | ` +
-    `[Balance](https://np.reddit.com/message/compose/?to=${process.env.REDDIT_USER}&subject=Balance&message=Tell%20me%20my%20XLM%20Balance!) | ` +
+    `[Withdraw](https://np.reddit.com/message/compose/?to=${process.env.REDDIT_USER}&subject=Withdraw&message=Amount%20SECOND%0Aaddress%20here) | ` +
+    `[Balance](https://np.reddit.com/message/compose/?to=${process.env.REDDIT_USER}&subject=Balance&message=Tell%20me%20my%20SECOND%20Balance!) | ` +
     '[Help](https://www.reddit.com/user/stellar_bot/comments/7o2gnd/help/) | ' +
     '[Donate](https://www.reddit.com/user/stellar_bot/comments/7o2ffl/donate/) | ' +
     '[About Stellar](https://www.stellar.org/)'
@@ -57,8 +57,8 @@ class Reddit extends Adapter {
   async onDeposit (sourceAccount, amount) {
     await callReddit('composeMessage', {
       to: sourceAccount.uniqueId,
-      subject: 'XLM Deposit',
-      text: formatMessage(`**${amount} XLM** have been sucessfully deposited to your account.`)
+      subject: 'SECOND Deposit',
+      text: formatMessage(`**${amount} SECOND** have been sucessfully deposited to your account.`)
     })
   }
 
@@ -87,16 +87,16 @@ class Reddit extends Adapter {
   }
 
   async onTip (tip, amount) {
-    await callReddit('reply', formatMessage(`You tipped **${amount} XLM** to *${tip.targetId}*.`), tip.original)
+    await callReddit('reply', formatMessage(`You tipped **${amount} SECOND** to *${tip.targetId}*.`), tip.original)
     callReddit('composeMessage', {
       to: tip.sourceId,
       subject: 'Tipped!',
-      text: formatMessage(`You tipped **${amount} XLM** to *${tip.targetId}*.`)
+      text: formatMessage(`You tipped **${amount} SECOND** to *${tip.targetId}*.`)
     })
     callReddit('composeMessage', {
       to: tip.targetId,
       subject: 'Tipped!',
-      text: formatMessage(`*${tip.sourceId}* tipped **${amount} XLM** to you. Have fun and enjoy the stellar experience.`)
+      text: formatMessage(`*${tip.sourceId}* tipped **${amount} SECOND** to you. Have fun and enjoy the stellar experience.`)
     })
   }
 
@@ -107,7 +107,7 @@ class Reddit extends Adapter {
  console.log("hash", hash);
  callReddit('composeMessage', {
       to: uniqueId,
-      subject: 'XLM Withdrawal failed',
+      subject: 'SECOND Withdrawal failed',
       text: formatMessage(`You tried to withdraw to the bot address. Please try again.`)
     })
   }
@@ -115,7 +115,7 @@ class Reddit extends Adapter {
   async onWithdrawalDestinationAccountDoesNotExist (uniqueId, address, amount, hash) {
     await callReddit('composeMessage', {
       to: uniqueId,
-      subject: 'XLM Withdrawal failed',
+      subject: 'SECOND Withdrawal failed',
       text: formatMessage(`I could not withdraw. The requested public address does not exist.`)
     })
   }
@@ -123,7 +123,7 @@ class Reddit extends Adapter {
   async onWithdrawalFailedWithInsufficientBalance (uniqueId, address, amount, hash) {
     await callReddit('composeMessage', {
       to: uniqueId,
-      subject: 'XLM Withdrawal failed',
+      subject: 'SECOND Withdrawal failed',
       text: formatMessage(`I could not withdraw. You requested more than your current balance. Please adjust and try again.`)
     })
   }
@@ -131,7 +131,7 @@ class Reddit extends Adapter {
   async onWithdrawalInvalidAddress (uniqueId, address ,amount, hash) {
     await callReddit('composeMessage', {
       to: uniqueId,
-      subject: 'XLM Withdrawal failed',
+      subject: 'SECOND Withdrawal failed',
       text: formatMessage(`I could not withdraw. The given address is not a valid stellar address.`)
     })
   }
@@ -143,8 +143,8 @@ class Reddit extends Adapter {
   async onWithdrawal (uniqueId, address, amount, hash) {
     await callReddit('composeMessage', {
       to: uniqueId,
-      subject: 'XLM Withdrawal',
-      text: formatMessage(`**${amount} XLM** are on their way to ${address}.`)
+      subject: 'SECOND Withdrawal',
+      text: formatMessage(`**${amount} SECOND** are on their way to ${address}.`)
     })
   }
 
@@ -214,8 +214,8 @@ class Reddit extends Adapter {
           const balance = await this.requestBalance(this.name, m.author.name)
           await callReddit('composeMessage', {
             to: m.author.name,
-            subject: 'XLM Balance',
-            text: formatMessage(`Your current balance is **${balance} XLM**.\n\n\n\nSECOND: dummy amount\n\n\n\nMINUTE: 123 test\n\n\n\nHOUR: 456 test\n\n\n\nDAY: 789test\n\n\n\nWEEK: another test\n\n\n\nMONTH: 1000000\n\n\n\nYEAR: 1`)
+            subject: 'SECOND Balance',
+            text: formatMessage(`Your current balance is **${balance} SECOND**.`) // \n\n\n\n for a new line
           })
           await callReddit('markMessagesAsRead', [m])
         }
@@ -224,10 +224,10 @@ class Reddit extends Adapter {
           const extract = this.extractWithdrawal(m.body_html)
 
           if (!extract) {
-            utils.log(`XLM withdrawal failed - unparsable message from ${m.author.name}.`)
+            utils.log(`SECOND withdrawal failed - unparsable message from ${m.author.name}.`)
             await callReddit('composeMessage', {
               to: m.author.name,
-              subject: 'XLM Withdrawal failed',
+              subject: 'SECOND Withdrawal failed',
               text: formatMessage(`I could not withdraw. Please make sure that the first line of the body is withdrawal amount and the second line your public key.`)
             })
           } else {
@@ -263,8 +263,8 @@ class Reddit extends Adapter {
    * All supported tipping formats ...
    */
   extractTipAmount (tipText) {
-    const matches =  tipText.match(/\+\+\+[\s{1}]?[\d\.]*[\s{1}]?XLM/i)
-    return matches ? matches[0].replace('+++', '').replace(/xlm/i, '').replace(/\s/g, '') : undefined
+    const matches =  tipText.match(/\+\+\+[\s{1}]?[\d\.]*[\s{1}]?SECOND/i)
+    return matches ? matches[0].replace('+++', '').replace(/SECOND/i, '').replace(/\s/g, '') : undefined
   }
 
   /**
@@ -287,4 +287,4 @@ class Reddit extends Adapter {
   }
 }
 
-module.exports = Reddit
+module.exports = Reddit;

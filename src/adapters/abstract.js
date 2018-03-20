@@ -180,10 +180,10 @@ class Adapter extends EventEmitter {
     const address = withdrawalRequest.address
     const fixedAmount = withdrawalAmount.toFixed(7)
 
-    utils.log(`XLM withdrawal initiated for ${uniqueId} on ${adapter}.`)
+    utils.log(`SECOND withdrawal initiated for ${uniqueId} on ${adapter}.`)
 
     if (!StellarSdk.StrKey.isValidEd25519PublicKey(address)) {
-      utils.log(`XLM withdrawal failed - invalid address ${address}.`)
+      utils.log(`SECOND withdrawal failed - invalid address ${address}.`)
       return this.onWithdrawalInvalidAddress(uniqueId, address, fixedAmount, hash)
     }
 
@@ -198,16 +198,16 @@ class Adapter extends EventEmitter {
       console.log("=== gordita ", address);
       await target.withdraw(this.config.stellar, address, withdrawalAmount, hash)
       console.log("=== taco");
-      utils.log(`${fixedAmount} XLM withdrawed by ${uniqueId} on ${adapter}.`)
+      utils.log(`${fixedAmount} SECOND withdrawed by ${uniqueId} on ${adapter}.`)
       console.log("=== burrito");
       this.onWithdrawal(uniqueId, address, fixedAmount, hash)
     } catch (exc) {
       if (exc === 'WITHDRAWAL_DESTINATION_ACCOUNT_DOES_NOT_EXIST') {
-        utils.log(`XLM withdrawal failed - no public address for ${uniqueId}.`)
+        utils.log(`SECOND withdrawal failed - no public address for ${uniqueId}.`)
         return this.onWithdrawalDestinationAccountDoesNotExist(uniqueId, address, fixedAmount, hash)
       }
       if (exc === 'WITHDRAWAL_REFERENCE_ERROR') {
-        utils.log(`XLM withdrawal failed - unknown error for ${uniqueId}.`)
+        utils.log(`SECOND withdrawal failed - unknown error for ${uniqueId}.`)
         return this.onWithdrawalReferenceError(uniqueId, address, fixedAmount, hash)
       }
       if (exc === 'WITHDRAWAL_SUBMISSION_FAILED') {
